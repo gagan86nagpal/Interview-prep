@@ -1,17 +1,31 @@
+// We always attempt to change the links rather than swapping the data as our goal is to improve our understanding on
+// how pointer works rather than in general algorithm of merge sort
+
+// Could this code be more messier
 #include <iostream>
 
 using namespace std;
-
 
 struct node
 {
     int data;
     node* next;
 };
+void printList(node * head)
+{
+    while(head!=NULL)
+    {
+        cout<<head->data;
+        if(head->next!=NULL)
+            cout<<" -> ";
+        head=head->next;
+    }
+    cout<<"\n";
+}
 node* insertAtBeginning(node * head,int data)
 {
     node * temp = new node();
-    temp->data =data;
+    temp->data = data;
     temp->next = head;
     head = temp;
     return head;
@@ -115,41 +129,85 @@ node * mergeSorted(node * head1,node * head2)
     }
     return head;
 }
-void printList(node * head)
+node * getFirstHalfEnd(node * head)
 {
+    if(head==NULL)
+        return NULL;
+    node * traverse=head;
     while(head!=NULL)
     {
-        cout<<head->data;
-        if(head->next!=NULL)
-            cout<<" -> ";
         head=head->next;
+        if(head!=NULL)
+            head=head->next;
+        if(head!=NULL)
+        traverse=traverse->next;
     }
-    cout<<"\n";
+    return traverse;
+}
+node * getNewList(node * first,node * last)
+{
+    if(first==NULL)
+        return NULL;
+    node * originalHead =NULL;
+    node * head = new node();
+    originalHead=head;
+    head->data = first->data;
+    head->next=NULL;
+    while(first!=last)
+    {
+        first=first->next;
+        if(first==NULL)
+            break;
+        head->next = new node();
+        head = head->next;
+        head->data=first->data;
+        head->next=NULL;
+    }
+    if(first!=last&&last!=NULL)
+    {
+        head->next = new node();
+        head=head->next;
+        head->data= last->data;
+        head->next=NULL;
+    }
+    return originalHead;
+}
+
+
+node * mergeSort(node * first,node * firstEnd, node * secondEnd)
+{
+    if(first==NULL)
+        return NULL;
+    if(first==firstEnd && firstEnd->next==NULL)
+        return first;
+    node * second = firstEnd->next;
+    node * firstList = getNewList(first,firstEnd);
+    node * secondList = getNewList(second,secondEnd);
+
+
+    firstList=mergeSort(firstList,getFirstHalfEnd(firstList),NULL);
+    secondList=mergeSort(secondList,getFirstHalfEnd(secondList),NULL);
+
+    return mergeSorted(firstList,secondList);
 }
 
 int main()
 {
-    node * head1 = NULL;
-    node * head2 = NULL;
-    node * mergedList = NULL;
-    head1=insertAtBeginning(head1,10);
-    head1=insertAtBeginning(head1,10);
-    head1=insertAtBeginning(head1,10);
-    head1=insertAtBeginning(head1,0);
-    printList(head1);
-
-    head2=insertAtBeginning(head2,20);
-    head2=insertAtBeginning(head2,10);
-    head2=insertAtBeginning(head2,10);
-    head2=insertAtBeginning(head2,14);
-    head2=insertAtBeginning(head2,12);
-    head2=insertAtBeginning(head2,8);
-    head2=insertAtBeginning(head2,5);
-    head2=insertAtBeginning(head2,2);
-    printList(head2);
-
-
-    mergedList  = mergeSorted(head1,head2);
-    printList(mergedList);
+    node * head=NULL;
+    node * sorted = NULL;
+    head  =insertAtBeginning(head,1);
+     head  =insertAtBeginning(head,4);
+     head  =insertAtBeginning(head,12);
+     head  =insertAtBeginning(head,14);
+     head  =insertAtBeginning(head,11);
+     head  =insertAtBeginning(head,411);
+     head  =insertAtBeginning(head,5);
+     head  =insertAtBeginning(head,2);
+     head  =insertAtBeginning(head,453);
+    cout<<"Initial List:\n";
+    printList(head);
+    sorted = mergeSort(head,getFirstHalfEnd(head),NULL);
+    cout<<"Sorted List:\n";
+    printList(sorted);
     return 0;
 }
