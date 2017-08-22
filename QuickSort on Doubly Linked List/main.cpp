@@ -38,6 +38,8 @@ void printListForward(node* head )
     }
     cout<<"\n";
 }
+
+// Partition Function
 node* part(node* first,node* last)
 {
     node *one,*two;
@@ -61,6 +63,8 @@ node* part(node* first,node* last)
     two->data=temp;
     return one->next;
 }
+
+// Quick SOrt
 void qsort(node* first,node * last)
 {
     if(first!=last && first!=NULL &&last!=NULL)
@@ -72,6 +76,8 @@ void qsort(node* first,node * last)
             qsort(p->next,last);
     }
 }
+
+
 int main()
 {
     node * head=NULL;
