@@ -92,6 +92,7 @@ int main()
 
     node * first=head;
     node *last=first;
+
     while(last!=NULL&&last->next!=NULL)
         last=last->next;
 
