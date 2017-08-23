@@ -15,6 +15,7 @@ int getTop(Stack * top)
         ret=top->data;
     return ret;
 }
+// usage similar to call by reference
 int pop(Stack* &top)  // reference is passed as to change the local top in the main function
 {
     int ret=-1;
@@ -29,6 +30,7 @@ int pop(Stack* &top)  // reference is passed as to change the local top in the m
     }
     return ret;
 }
+// call by reference
 void push(Stack* & top,int x)
 {
     Stack * temp =new Stack();
