@@ -1,0 +1,4 @@
+# depslib dependency file v1.0
+1503630022 source:d:\interview prep\design a stack that supports getmin() in o(1) time and o(1) extra space\main.cpp
+	<iostream>
+
