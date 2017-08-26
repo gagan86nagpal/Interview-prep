@@ -101,6 +101,7 @@ int main()
     q.print();
     q.dequeue();
     q.print();
-
+    q.dequeue();
+    q.print();
     return 0;
 }
