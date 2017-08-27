@@ -78,7 +78,7 @@ public:
             l=l->prev;
             delete temp;
             if(l==NULL)  // Now List is empty
-                l=NULL;
+                f=NULL;
             else
                 l->next=NULL;
         }
