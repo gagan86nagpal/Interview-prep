@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1503800687 source:d:\interview prep\find the first circular tour that visits all petrol pumps\main.cpp
+	<iostream>
+	<vector>
+	<utility>
+
