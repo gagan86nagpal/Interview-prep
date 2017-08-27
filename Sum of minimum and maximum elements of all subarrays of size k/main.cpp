@@ -115,27 +115,46 @@ int main()
 {
     int n,k;
     cin>>n;
+    int a,b;
     int i;
     for(i=0;i<n;i++)
         cin>>input[i];
     cin>>k;
-    Deque dq;
+    Deque mi,ma;
     for(i=0;i<k;i++)
     {
-        while(!dq.isEmpty()&& input[i]>=input[dq.getLast()])
-            dq.deleteLast();
-        dq.insertLast(i);
-    }
+        while(!mi.isEmpty()&& input[i]<=input[mi.getLast()])
+            mi.deleteLast();
+        mi.insertLast(i);
 
+        while(!ma.isEmpty()&& input[i]>=input[ma.getLast()])
+            ma.deleteLast();
+        ma.insertLast(i);
+
+    }
+    cout<<"min\tmax\n";
     for(i=k;i<n;i++)
     {
-        cout<<input[dq.getFront()]<<" ";
-        if(!dq.isEmpty() && dq.getFront()<=i-k)
-            dq.deleteFront();
-         while(!dq.isEmpty()&& input[i]>=input[dq.getLast()])
-            dq.deleteLast();
-        dq.insertLast(i);
+        a=input[mi.getFront()];
+        if(!mi.isEmpty() && mi.getFront()<=i-k)
+            mi.deleteFront();
+         while(!mi.isEmpty()&& input[i]<=input[mi.getLast()])
+            mi.deleteLast();
+        mi.insertLast(i);
+
+
+        b=input[ma.getFront()];
+        if(!ma.isEmpty() && ma.getFront()<=i-k)
+            ma.deleteFront();
+         while(!ma.isEmpty()&& input[i]>=input[ma.getLast()])
+            ma.deleteLast();
+        ma.insertLast(i);
+        cout<<a<<"\t"<<b<<"\n";
+       // cout<<a+b<<" ";
     }
-    cout<<input[dq.getFront()]<<" ";
+    a=input[mi.getFront()];
+    b=input[ma.getFront()];
+    cout<<a<<"\t"<<b<<"\n";
+   // cout<<input[mi.getFront()]+input[ma.getFront()]<<" \n";
     return 0;
 }
