@@ -127,8 +127,6 @@ int main()
     if(ans==-1)
         cout<<"No Circular tour exists\n";
     else
-        cout<<"Circular Tour exists from index:"<<ans<<"\n";
-    for(i=0;i!=0;i++)
-        cout<<"i:"<<i<<"\n";
+        cout<<"Circular Tour exists from index:"<<ans;
     return 0;
 }
