@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1503976737 source:d:\interview prep\inroder tree traversal without recursion\main.cpp
+	<iostream>
+	<stack>
+	<set>
+
