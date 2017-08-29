@@ -30,20 +30,14 @@ void inorder(node* root)  // left,root,right
     {
         top=st.top();
         if(top->left  && vis.find(top->left)==vis.end())
-        {
             st.push(top->left);
-            top=top->left;
-        }
         else  // this node doesn't has a left child , we should print it
         {
             // if there is no right node , or if there is but it is not yet visited , then print it
             if((top->right==NULL || vis.find(top->right)==vis.end()))
                 cout<<top->data<<" ";
             if(top->right && vis.find(top->right)==vis.end())  // but it has right child so explore right child
-            {
                 st.push(top->right);
-                top=top->right;
-            }
             else
             {
                 vis.insert(top);
