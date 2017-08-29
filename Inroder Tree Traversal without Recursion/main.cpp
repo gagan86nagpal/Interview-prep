@@ -16,6 +16,10 @@ node* newNode(int data)
     temp->right=NULL;
     return temp;
 }
+
+// using a set to mark visited nodes as to not visit them again
+// inorder can also be achieved without using a visited set
+// if loop constructs are designed properly
 void inorder(node* root)  // left,root,right
 {
     set< node *>vis;
