@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1503979920 source:d:\interview prep\inorder tree traversal without recursion without set\main.cpp
+	<iostream>
+	<stack>
+
