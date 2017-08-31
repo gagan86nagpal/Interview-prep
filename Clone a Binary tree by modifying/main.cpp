@@ -105,18 +105,18 @@ node * clone(node* root)
 }
 int main()
 {
-    node *root = newNode(1);
-    root->left = newNode(2);
-    root->right = newNode(3);
-    root->left->left = newNode(4);
-    root->left->right = newNode(5);
-    root->random = root->left->right;
-    root->left->left->random = root;
-    root->left->right->random = root->right;
+    node *tree = newNode(1);
+    tree->left = newNode(2);
+    tree->right = newNode(3);
+    tree->left->left = newNode(4);
+    tree->left->right = newNode(5);
+    tree->random = tree->left->right;
+    tree->left->left->random = tree;
 
 
-    node* cloned = clone(root);
-    print(root,cloned);
+    tree->left->right->random = tree->right;
+    node* cloned = clone(tree);
+    print(tree,cloned);
     return 0;
 
 }
