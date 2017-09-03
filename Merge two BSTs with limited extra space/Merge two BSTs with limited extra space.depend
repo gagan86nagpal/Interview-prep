@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1504411990 source:d:\interview prep\merge two bsts with limited extra space\main.cpp
+	<iostream>
+	<stack>
+
