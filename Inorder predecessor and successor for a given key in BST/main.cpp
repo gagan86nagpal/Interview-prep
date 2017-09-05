@@ -114,6 +114,6 @@ int main()
     insertBST(root,6);
     insertBST(root,8);
     print(root);
-    printPredSucc(root,1);
+    printPredSucc(root,4);
     return 0;
 }
