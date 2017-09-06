@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1504665706 source:d:\interview prep\find a pair with given sum in a balanced bst (time is o(n),space is o(logn)))\main.cpp
+	<iostream>
+	<stack>
+
