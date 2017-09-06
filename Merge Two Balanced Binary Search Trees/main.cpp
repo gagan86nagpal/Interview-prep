@@ -8,7 +8,12 @@ using namespace std;
 // Now, Creating a doubly Linked List of the ascending order elements
 // Converting this DLL into a Balanced BST also takes linear time.
 
-
+// EDIT:
+// No need of creating a DLL
+// We can construct the BST from array itself
+// Select middle element as root , and recurse on left and right subtree
+// Time will be linear as Recurrence relation would be T(n)=2*T(n/2) + O(1)
+// I Took the hard way because to overcome fear, to practice
 struct node
 {
     int data;
