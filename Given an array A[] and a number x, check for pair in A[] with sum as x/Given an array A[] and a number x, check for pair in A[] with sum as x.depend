@@ -1,0 +1,4 @@
+# depslib dependency file v1.0
+1504930610 source:d:\interview prep\given an array a[] and a number x, check for pair in a[] with sum as x\main.cpp
+	<iostream>
+
