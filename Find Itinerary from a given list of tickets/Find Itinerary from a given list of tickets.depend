@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1505009192 source:d:\interview prep\find itinerary from a given list of tickets\main.cpp
+	<iostream>
+	<map>
+	<string>
+	<utility>
+	<set>
+
