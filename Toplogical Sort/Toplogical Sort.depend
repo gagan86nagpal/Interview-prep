@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1505095712 source:d:\interview prep\toplogical sort\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
