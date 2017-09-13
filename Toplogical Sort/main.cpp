@@ -31,7 +31,7 @@ void topSort(int v)
             dfs(i);
     }
     reverse(top_sort.begin(),top_sort.end());  // Reversing the order of elements will give us dfs
-    cout<<"Top Logical Sorting order is:";
+    cout<<"Topological Sorting order is:";
     for(auto x : top_sort)
         cout<<x<<" ";
     cout<<"\n";

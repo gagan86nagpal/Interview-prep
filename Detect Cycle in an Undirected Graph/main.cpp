@@ -53,6 +53,6 @@ int main()
     if(isCyclic(v))
         cout<<"Graph has cycles\n";
     else
-        cout<<"Graph does not has cycles\n";
+        cout<<"Graph does not have cycles\n";
     return 0;
 }
