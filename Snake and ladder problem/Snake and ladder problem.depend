@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1505277800 source:d:\serious comp. programming\snake and ladder problem\main.cpp
+	<iostream>
+	<vector>
+	<queue>
+	<utility>
+
