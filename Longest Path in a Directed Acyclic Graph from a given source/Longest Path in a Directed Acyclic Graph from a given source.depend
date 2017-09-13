@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1505272786 source:d:\serious comp. programming\longest path in a directed acyclic graph from a given source\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
