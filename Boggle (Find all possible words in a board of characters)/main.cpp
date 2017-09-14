@@ -18,6 +18,11 @@ Note that we can move to any of 8 adjacent characters, but a word should not hav
 // We are totoal m*n dfs calls
 // May god forgive us
 
+
+
+// Somewhat better solution is to build a trie of dictionary
+// And make only those calls to further dfs which are a valid child in a trie node
+// This We can reduce the number of calls and there won't be an exponential factor.
 int cnt=0;  // just to see , how worse this algo is
 const int m=3,n=3;
 char boggle[m][n] =     {{'G','I','Z'},
