@@ -64,6 +64,17 @@ int query(int node,int l,int r,int ql,int qr)
 // Increase all elements int the range [x..y] by add
 void updateRange(int node,int l,int r,int x,int y,int add)
 {
+    if(lazyTree[node]!=0) // if node is lazy , then update it and make it's child as lazy
+    {
+        segTree[node] += (r-l+1)*lazyTree[node];
+        int val=lazyTree[node];
+        lazyTree[node]=0;
+        if(l!=r)
+        {
+            lazyTree[2*node+1]+=val;
+            lazyTree[2*node+2]+=val;
+        }
+    }
     if(r<x || l> y)
         return ;
     if(l==r)
@@ -76,8 +87,12 @@ void updateRange(int node,int l,int r,int x,int y,int add)
     {
         segTree[node]+=(r-l+1)*add; // update the node
         lazyTree[node]=0;
-        lazyTree[2*node+1]+=add;  // mark left child as lazy
-        lazyTree[2*node+2]+=add;  // mark right child as lazy
+        if(l!=r)
+        {
+
+            lazyTree[2*node+1]+=add;  // mark left child as lazy
+            lazyTree[2*node+2]+=add;  // mark right child as lazy
+        }
         return;
     }
     int m;
