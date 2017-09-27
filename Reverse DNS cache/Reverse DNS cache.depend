@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506488400 source:d:\interview prep\reverse dns cache\main.cpp
+	<iostream>
+	<vector>
+
