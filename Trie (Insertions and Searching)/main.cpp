@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 using namespace std;
-struct trieNode
+struct trieNode // General Trie node Structure
 {
-    bool isLeaf;
+    bool isLeaf;  // to keep track of actual words in a trie
     trieNode* children[26];
 };
 trieNode* getNode()
@@ -20,11 +20,11 @@ void insertTrie(trieNode* root,string st)
     int i;
     for(i=0;i<(int)st.length();i++)
     {
-        if(root->children[st[i]-'a' ]==NULL)
-            root->children[ st[i]-'a' ] = getNode();
-        root=root->children[ st[i]-'a' ];
+        if(root->children[st[i]-'a' ]==NULL)  // if node is not present
+            root->children[ st[i]-'a' ] = getNode();    // create node
+        root=root->children[ st[i]-'a' ];   // traverse the trie
     }
-    root->isLeaf=true;
+    root->isLeaf=true; // marking actual words
 }
 
 bool searchTrie(trieNode* root,string st)
