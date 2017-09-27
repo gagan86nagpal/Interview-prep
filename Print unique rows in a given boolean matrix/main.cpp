@@ -2,9 +2,12 @@
 
 using namespace std;
 
+
+// IDea is to maintain a trie, and keep on inserting
+// If insertion is successful , then print row
 struct trieNode
 {
-    bool isleaf;
+    bool isleaf ;
     trieNode* children[2];
 };
 trieNode* getNode()
@@ -15,6 +18,8 @@ trieNode* getNode()
         temp->children[i]=NULL;
     return temp;
 }
+// return true if insertion is successful
+//else false
 bool insertTrie(trieNode* root,int m[4][5],int r,int c)
 {
     int i;
@@ -31,7 +36,7 @@ bool insertTrie(trieNode* root,int m[4][5],int r,int c)
     }
     return false;
 }
-void print(int **m,int r,int c)
+void print(int m[4][5],int r,int c)
 {
     int i;
     for(i=0;i<c;i++)
