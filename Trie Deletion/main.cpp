@@ -2,12 +2,12 @@
 #include <string>
 #include <vector>
 using namespace std;
-struct trieNode
+struct trieNode // trie node
 {
     bool isLeaf;
     trieNode* children[26];
 };
-trieNode* getNode()
+trieNode* getNode() // return an empty node
 {
     trieNode * temp = new trieNode();
     int i;
@@ -15,6 +15,7 @@ trieNode* getNode()
         temp->children[i]=NULL;
     return temp;
 }
+// returns true if current node has any children , else false
 bool hasChildren(trieNode* node)
 {
     int i;
@@ -27,14 +28,14 @@ trieNode* deleteTrie(trieNode* root,string st,int in=0)
 {
     if(root==NULL)
         return NULL;
-    if(in==st.length() && root->isLeaf==true) // end of string
+    if(in==st.length() && root->isLeaf==true) // end of string and word also exists
     {
-        if(hasChildren(root))
+        if(hasChildren(root))  // if it has children then just mark it as not a leaf
         {
             root->isLeaf=false;
             return root;
         }
-        else
+        else  // else delete this and also make its parent pointer to NULL by recursion
         {
             delete root;
             return NULL;
@@ -42,9 +43,9 @@ trieNode* deleteTrie(trieNode* root,string st,int in=0)
     }
 
     root->children[st[in]-'a']=deleteTrie(root->children[st[in]-'a'],st,in+1);
-    if(hasChildren(root)||in==0)
+    if(hasChildren(root)||in==0)   // if it is the first node then do not delete it , even it doesn't have children
         return root;
-    else
+    else                 // If not a first node and doesn't have any children , then delete it and make its parent pointer to NULL
     {
         delete root;
         return NULL;
@@ -55,13 +56,13 @@ void insertTrie(trieNode* root,string st)
     int i;
     for(i=0;i<(int)st.length();i++)
     {
-        if(root->children[st[i]-'a' ]==NULL)
-            root->children[ st[i]-'a' ] = getNode();
-        root=root->children[ st[i]-'a' ];
+        if(root->children[st[i]-'a' ]==NULL)  // if path is not present
+            root->children[ st[i]-'a' ] = getNode();        // create
+        root=root->children[ st[i]-'a' ];       // traverse the trie
     }
     root->isLeaf=true;
 }
-
+// return true if st is present in trie else false
 bool searchTrie(trieNode* root,string st)
 {
     int i;
