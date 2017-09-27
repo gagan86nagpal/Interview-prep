@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+// index holds the index in domain_names vector if there is a ip else -1
 struct trieNode
 {
     int index;
