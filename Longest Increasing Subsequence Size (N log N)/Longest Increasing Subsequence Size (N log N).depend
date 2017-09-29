@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1506623269 source:d:\interview prep\longest increasing subsequence size (n log n)\main.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+
