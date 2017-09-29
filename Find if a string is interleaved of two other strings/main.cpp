@@ -3,6 +3,7 @@
 using namespace std;
 string a,b,c;
 int dp[1000][1000];
+
 void init(int n,int m)
 {
     int i,j;
