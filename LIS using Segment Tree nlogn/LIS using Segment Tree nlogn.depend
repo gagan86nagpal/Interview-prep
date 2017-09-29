@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1506650331 source:d:\interview prep\lis using segment tree nlogn\main.cpp
+	<iostream>
+	<algorithm>
+	<utility>
+	<vector>
+
