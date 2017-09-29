@@ -5,6 +5,14 @@
 using namespace std;
 int dp[1002][1002];
 
+
+// Idea is to first solve the subproblems as they are needed in the graph
+// So , generating a diagonal pattern by sorting on the basis of (i+j) , where i is row index
+// j is column index
+
+// Normal traversal
+// j=m-1...0
+//   i=n-1...0 , would also have worked
 vector < pair <int,int> >  v;
 int gen[1002][1002];
 int comp(pair <int,int> p1,pair <int,int> p2)

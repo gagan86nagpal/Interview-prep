@@ -4,6 +4,11 @@ using namespace std;
 int m[1001][1001];
 int dp[1001][1001];
 
+
+// Idea is to imagine the problem in graph , find the top sort
+// And solve in the fashion
+
+// Top sort is the row-col traversal
 int minCost(int r,int c)
 {
     int i=0,j=0;

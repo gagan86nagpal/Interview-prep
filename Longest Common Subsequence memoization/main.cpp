@@ -9,13 +9,20 @@ void init(int n,int m)
         for(j=0;j<=m;j++)
             dp[i][j]=-1;
 }
+
+// if index are qeual , then recurse to subproblem of 1 index ahead
+// else take two possibilities
+// 1. ignore index at a string
+// 2. ignore index at b string
+
+// Solving by MEmoixation
 int lcs(string a,string b,unsigned sa,unsigned sb)
 {
     if(a.size()==sa || b.size()==sb)
         return 0;
-    if(dp[sa][sb]!=-1)
+    if(dp[sa][sb]!=-1) // if already solved then return
         return dp[sa][sb];
-
+// else compute
     if(a[sa]==b[sb])
         dp[sa][sb]=1+lcs(a,b,sa+1,sb+1);
     else

@@ -6,6 +6,14 @@ using namespace std;
 int dp[2002][2002];
 
 vector < pair <int,int> >  v;
+
+
+// Idea it to solve sub problems in top sort order of the subproblem graph
+
+// Here top sort comes out to be a diagonal order
+// SO sorting is just making this order
+// Normal ,row - col wise traversal can also be used, since it is also one of the top sorts
+
 int comp(pair <int,int> p1,pair <int,int> p2)
 {
     int s1=p1.first+p1.second;

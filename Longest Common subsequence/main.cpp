@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 using namespace std;
+// if index are qeual , then recurse to subproblem of 1 index ahead
+// else take two possibilities
+// 1. ignore index at a string
+// 2. ignore index at b string
 int lcs(string a,string b,unsigned sa,unsigned sb)
 {
     if(a.size()==sa || b.size()==sb)
