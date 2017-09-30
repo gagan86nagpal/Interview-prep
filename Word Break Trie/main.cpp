@@ -47,6 +47,11 @@ bool searchTrie(trieNode* root,string s)
 
 int dp[100000];
 
+// Same solution but trie is being used
+// as building the dictionay as well as searching is optimal in trie
+
+// Hashing like in Rabin Karp can also be used , giving us a far greater optimized solution
+// But in the worst case , it will behave like trie solution only
 bool isBreakable(trieNode*  root,string x)
 {
     int i,j;
