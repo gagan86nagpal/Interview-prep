@@ -5,6 +5,8 @@ using namespace std;
 set < string> dict;
 string to_search;
 
+// Same algorithm as previous
+// Instead trie is used for building the dictionary and also for searching
 bool isBreakable(unsigned index,string output)
 {
     if(to_search.size()==index)
