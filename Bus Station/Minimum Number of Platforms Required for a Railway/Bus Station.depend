@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1506770174 source:d:\interview prep\bus station\minimum number of platforms required for a railway\main.cpp
+	<iostream>
+	<vector>
+	<set>
+	<algorithm>
+
