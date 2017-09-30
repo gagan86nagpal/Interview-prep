@@ -4,11 +4,11 @@
 using namespace std;
 set < string> dict;
 string to_search;
-
-// Same algorithm as previous
-// Instead trie is used for building the dictionary and also for searching
+// here we are not stoppping if we found a solution, we keep on finding other solutions as well
+// When we hit a leaf in recursion tree, we print out output
 bool isBreakable(unsigned index,string output)
 {
+    // Recursion leaf
     if(to_search.size()==index)
     {
         cout<<output.substr(1)<<"\n";
@@ -22,8 +22,9 @@ bool isBreakable(unsigned index,string output)
         string sub=to_search.substr(index,i);
          if(dict.find( sub )!=dict.end()) // found
          {
-             flag== isBreakable(index+i,output+" "+sub) || flag;
+             flag== isBreakable(index+i,output+" "+sub) || flag; // changing the order of RHS may result in boolean shortcut
          }
+         // No break if flag is true , as we want to explore all solutions
     }
     return flag;
 }
