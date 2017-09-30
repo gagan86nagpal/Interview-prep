@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1506738909 source:d:\interview prep\word break problem\main.cpp
+	<iostream>
+	<set>
+	<string>
+
