@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1506788495 source:d:\interview prep\parenthesizing an expression\main.cpp
+	<iostream>
+	<vector>
+	<string>
+
