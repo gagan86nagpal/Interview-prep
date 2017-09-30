@@ -7,6 +7,11 @@ set < string> dict;
 
 int dp[100000];
 
+
+// dp[i] is true , if we can find the answer till x[0..i]
+// dp[x.size()-1] is the final answer
+// Using this approach , we can think of an iterative solution
+// Dictionary has been stored in set for moderately fast retrieval
 bool isBreakable(string x)
 {
     int i,j;
