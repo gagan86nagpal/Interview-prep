@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1506968808 source:d:\interview prep\longest bitonic subsequence\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<utility>
+
