@@ -3,6 +3,15 @@
 using namespace std;
 string a;
 bool isPalindrome[1000][1000];
+
+int dp[1000][1000];
+void init(int n)
+{
+    int i,j;
+    for(i=0;i<=n;i++)
+        for(j=0;j<=n;j++)
+            dp[i][j]=-1;
+}
 void populateIsPalindome(int n)
 {
     int gap;
@@ -36,25 +45,21 @@ int min_cut(int s,int e)
     int i;
     if(isPalindrome[s][e])
         return 0;
+    if(dp[s][e]!=-1)
+        return dp[s][e];
     int mi=a.size();
     for(i=s;i<=e-1;i++)
     {
         mi=min(min_cut(s,i) + min_cut(i+1,e) +1,mi);
     }
-    return mi;
+    return dp[s][e]=mi;
 }
 int main()
 {
     cin>>a;
     populateIsPalindome(a.size()-1);
-
+    init(a.size());
     int i,j;
-    for(i=0;i<a.size();i++)
-    {
-        for(j=0;j<a.size();j++)
-            cout<<isPalindrome[i][j]<<" ";
-        cout<<"\n";
-    }
     int ans=min_cut(0,a.size()-1);
     cout<<ans<<"\n";
         return 0;
