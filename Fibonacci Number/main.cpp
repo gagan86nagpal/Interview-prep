@@ -1,23 +1,23 @@
-#include <iostream>
+    #include <iostream>
 
-using namespace std;
+    using namespace std;
 
-int main()
-{
-    long long t,n,a,b,c,m=1000000007;
-    cin>>t;
-    while(t--)
+    int main()
     {
-        cin>>n;
-        a=0;
-        b=1;
-        while(n--)
+        long long t,n,a,b,c,m=1000000007;
+        cin>>t;
+        while(t--)
         {
-            c=(a+b)%m;
-            a=b%m;
-            b=c%m;
+            cin>>n;
+            a=0;
+            b=1;
+            while(n--)
+            {
+                c=(a+b)%m;
+                a=b%m;
+                b=c%m;
+            }
+            cout<<a<<"\n";
         }
-        cout<<a<<"\n";
+        return 0;
     }
-    return 0;
-}
