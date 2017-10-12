@@ -17,7 +17,7 @@ int solve(int n)
     {
         for(i=1;i<=n-l+1;i++)
         {
-            j=i+l-1;
+            j=i+l-1;/
             for(k=i;k<=j;k++)  // choosing k as root
             {
                 int val;
