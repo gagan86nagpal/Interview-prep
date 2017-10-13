@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1507860183 source:d:\interview prep\minimum cost polygon triangulation\main.cpp
+	<iostream>
+	<cmath>
+
