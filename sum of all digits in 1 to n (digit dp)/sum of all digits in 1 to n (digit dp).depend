@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1508038536 source:d:\interview prep\sum of all digits in 1 to n (digit dp)\main.cpp
+	<iostream>
+	<math.h>
+
