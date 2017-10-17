@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1508205658 source:d:\interview prep\activity selection dp\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
