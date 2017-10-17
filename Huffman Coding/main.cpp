@@ -20,7 +20,7 @@ node* getNode(string name)
 vector < pair <int,string >  > sym ; // frequency , string
 node* createHuffmanTree(int n)
 {
-     priority_queue < pair< int , node* >, vector< pair< int , node* > >, greater< pair< int , node* > > > pq;
+    priority_queue < pair< int , node* >, vector< pair< int , node* > >, greater< pair< int , node* > > > pq;
     pair< int , node* > p1,p2;
     int i;
     for(i=0;i<n;i++)
