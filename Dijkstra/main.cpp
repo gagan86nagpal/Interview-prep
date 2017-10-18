@@ -8,7 +8,6 @@ using namespace std;
 vector <pair <int,int> > graph[10005];
 vector <int> dist;
 multiset < pair <int,int> > s;  // weight , vertex
-int vis[10005];
 void init(int source,int n)
 {
     dist = vector<int> (n+3,inf);
@@ -24,11 +23,6 @@ void dijkstra(int n,int source)
         pair <int,int> p = *s.begin();
         s.erase(s.begin());
         int v = p.second;
-
-         //cout<<"Popping order:"<<v<<"\n";
-        if(vis[v])
-            continue;
-        vis[v]=1;
         for(i=0;i<(int)graph[v].size();i++)
         {
             int u = graph[v][i].second;
