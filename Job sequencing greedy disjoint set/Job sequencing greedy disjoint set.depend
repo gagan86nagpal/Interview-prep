@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1508300255 source:d:\interview prep\job sequencing greedy disjoint set\main.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<utility>
+
