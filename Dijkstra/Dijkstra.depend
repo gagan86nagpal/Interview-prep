@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1508293140 source:d:\interview prep\dijkstra\main.cpp
+	<iostream>
+	<vector>
+	<utility>
+	<set>
+
