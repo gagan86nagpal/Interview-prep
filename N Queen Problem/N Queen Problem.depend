@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1508384610 source:d:\interview prep\n queen problem\main.cpp
+	<iostream>
+	<vector>
+	<utility>
+	<cmath>
+
