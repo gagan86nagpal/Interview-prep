@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1508380424 source:d:\interview prep\the knight's tour\main.cpp
+	<iostream>
+	<cmath>
+
+1508380876 source:d:\interview prep\knightstour\main.cpp
+	<iostream>
+	<cmath>
+
