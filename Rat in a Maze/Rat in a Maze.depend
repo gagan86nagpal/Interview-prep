@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1508382227 source:d:\interview prep\rat in a maze\main.cpp
+	<iostream>
+	<string>
+	<set>
+

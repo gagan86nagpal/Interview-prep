@@ -18,6 +18,7 @@ bool generate_solution(int move_number,int x,int y,int n)
         return true;
     for(i=-2;i<=2;i++)
     {
+
         for(j=-2;j<=2;j++)
         {
             if(abs(i) + abs(j)==3) // all knight moves
