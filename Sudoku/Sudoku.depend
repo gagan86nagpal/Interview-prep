@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1508474853 source:d:\interview prep\sudoku\main.cpp
+	<iostream>
+	<vector>
+	<utility>
+
