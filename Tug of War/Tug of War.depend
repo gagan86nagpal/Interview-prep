@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1508552333 source:d:\interview prep\tug of war\main.cpp
+	<iostream>
+	<vector>
+	<cmath>
+
