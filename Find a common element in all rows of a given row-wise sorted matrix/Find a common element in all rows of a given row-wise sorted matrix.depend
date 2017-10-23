@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1508731516 source:d:\interview prep\find a common element in all rows of a given row-wise sorted matrix\main.cpp
+	<iostream>
+	<vector>
+
