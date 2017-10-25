@@ -3,6 +3,9 @@
 using namespace std;
 int a[104];
 
+// Here elements are distinct
+// So , for every subarray we can check if max - min +1 == numner of elements
+
 int solve(int n)
 {
     int f=-1,s=-1,t=-1;
