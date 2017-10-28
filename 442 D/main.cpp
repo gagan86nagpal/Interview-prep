@@ -1,11 +1,13 @@
+// Removing continue
+
 #include <iostream>
 #include <cmath>
 using namespace std;
-string mat[1001];
-int dp[1001][1001];
-int vis[1001][1001];
+string mat[1005];
+int dp[1005][1005];
+int vis[1005][1005];
 int n,m;
-
+#define max 10000000
 bool inLimits(int i,int j)
 {
     return i>=0 && i<n && j>=0 && j<m;
@@ -26,28 +28,88 @@ bool isReachable(int i,int j,int x,int y)
         d=isReachable(i,j-1,x,y);
     return a||b||c||d;
 }
-int shortestDistance(int i,int j,int x,int y)
+int shortestDistance(int i,int j,int x,int y,int k)
 {
     vis[i][j]=1;
     if(i==x && y==j)
-        return 0;
-    int a=100000,b=10000,c=1000000,d=1000000;
-    if(inLimits(i+1,j) && mat[i+1][j]=='.' && vis[i+1][j]==0)
-       a=1+ shortestDistance(i+1,j,x,y);
-    if(inLimits(i,j+1) && mat[i][j+1]=='.' && vis[i][j+1]==0)
-        b=1+shortestDistance(i,j+1,x,y);
-    if(inLimits(i-1,j) && mat[i-1][j]=='.' && vis[i-1][j]==0)
-        c=1+shortestDistance(i-1,j,x,y);
-    if(inLimits(i,j-1) && mat[i][j-1]=='.' && vis[i][j-1]==0)
-       d=1+ shortestDistance(i,j-1,x,y);
-       return min(min(a,b), min(c,d)) ;
+        return dp[i][j]=0;
+    if(dp[i][j]!=-1)
+        return dp[i][j];
+    int a=max;
+    for(int l=1;l<=k;l++)// down
+    {
+        if(inLimits(i+l,j) && mat[i+l][j]=='.')
+        {
+            if(vis[i+l][j] && dp[i+l][j]!=-1)  // already calculated
+                a =min(a,1+dp[i+l][j]);
+            else if(vis[i+l][j] && dp[i+l][j]==-1)  // I came from this subproblem
+                continue;
+            else    //I haven't seen this subproblem
+                a=min(a,1+shortestDistance(i+l,j,x,y,k));
+        }
+        else
+            break;
+    }
+    for(int l=1;l<=k;l++)//right
+    {
+        if(inLimits(i,j+l) && mat[i][j+l]=='.')
+        {
+            if(vis[i][j+l] && dp[i][j+l]!=-1)  // already calculated
+                a = min(a,1+dp[i][j+l]);
+            else if(vis[i][j+l] && dp[i][j+l]==-1)  // I came from this subproblem
+                continue;
+            else        //I haven't seen this subproblem
+                a=min(a,1+shortestDistance(i,j+l,x,y,k));
+        }
+        else
+            break;
+    }
+    for(int l=1;l<=k;l++) // up
+    {
+        if(inLimits(i-l,j)&& mat[i-l][j]=='.')
+        {
+            if(vis[i-l][j] && dp[i-l][j]!=-1)  // ALready calculated
+                a = min(a,1+dp[i-l][j]);
+            else if(vis[i-l][j] && dp[i-l][j]==-1)  // I came from this subproblem
+                continue;
+            else  // I haven't seen this subproblem
+                a=min(a,1+shortestDistance(i-l,j,x,y,k));
+        }
+        else
+            break;
+    }
+    for(int l=1;l<=k;l++)//left
+    {
+        if(inLimits(i,j-l)&& mat[i][j-l]=='.')
+        {
+            if(vis[i][j-l] && dp[i][j-l]!=-1)   // Already Calculated
+                a = min(a,1+dp[i][j-l]);
+            else if(vis[i][j-l] && dp[i ][j-l]==-1)  // i came from this subproblem
+                continue ;
+            else            // I haven't seen this subproblem
+                a=min(a,1+shortestDistance(i,j-l,x,y,k));
+        }
+        else
+            break;
+    }
+       return dp[i][j]=a;
+}
+void print(int x[1005][1005],int n,int m)
+{
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+            cout<<x[i][j]<<"\t";
+        cout<<"\n";
+    }
 }
 void init(int n,int m)
 {
     int i,j;
     for(i=0;i<n;i++)
         for(j=0;j<m;j++)
-            dp[i][j]=0,vis[i][j]=0;
+            dp[i][j]=-1,vis[i][j]=0;
 }
 int main()
 {
@@ -66,11 +128,23 @@ int main()
     if(is_solve)
     {
         init(n,m);
-        int dist = shortestDistance(sx,sy,fx,fy);
+        int dist = shortestDistance(sx,sy,fx,fy,k);
         cout<<dist<<"\n";
-        cout<<ceil(dist/k)<<"\n";
     }
     else
         cout<<"-1\n";
+
+    print(dp,n,m);
     return 0;
 }
+/*
+7 5 3
+...#.
+.#..#
+###..
+.....
+.....
+.....
+.....
+1 1 7 1
+*/
