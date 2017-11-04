@@ -7,24 +7,26 @@ using namespace std;
 string great(string s)
 {
     int i;
-    char min_index=s.size()-1;
     bool flag=false;
+    int pos_fault;
     for(i=s.size()-1;i>0;i--)
-    {
         if(s[i]>s[i-1]) // fault found
         {
+            pos_fault =i-1;
             flag=true;
             break;
         }
-       if(s[min_index]>s[i])
-        min_index=i;
-    }
-    if(!flag)
+    if(!flag)  // NOT possible
         return s;
-    char temp=s[i-1];
-    s[i-1]=s[min_index];
-    s[min_index]=temp;
-    reverse(s.begin()+i,s.end());
+    char min_index= i;
+    while(i<(int)s.size())
+    {
+        if(s[i] > s[pos_fault] && s[min_index]>s[i])
+            min_index=i;
+        i++;
+    }
+    swap(s[pos_fault],s[min_index]);
+    reverse(s.begin()+pos_fault+1,s.end());
     return s;
 }
 int main()

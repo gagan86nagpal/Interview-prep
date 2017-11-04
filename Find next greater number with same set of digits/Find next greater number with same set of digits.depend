@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1509521199 source:d:\interview prep\find next greater number with same set of digits\main.cpp
+	<iostream>
+	<string>
+	<algorithm>
+
